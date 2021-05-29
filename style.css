@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    background-color: hsl(235, 21%, 11%);
+}
+
+body{
+    font-size: 1.8rem;
+    
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(images/bg-desktop-dark.jpg) no-repeat ;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80vw;
+    max-width: 450px;
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    padding: 4px 2px;
+    height: 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo p {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+#changeTheme {
+    cursor: pointer;
+}
+
+.newElement {
+    height: 50px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    background-color: hsl(235, 24%, 19%);
+    border-radius: 5px;
+}
+
+.buttonCreate {
+    width: 1.6rem;
+    height: 1.6rem;
+    background: hsl(280, 87%, 65%);
+    border: 1px solid hsl(280, 87%, 65%);
+    border-radius: 50%;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+
+    margin: 0 15px;
+}
+
+.checkBox {
+    width: 1.6rem;
+    height: 1.6rem;
+    background: none;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid hsl(192, 100%, 67%);
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+
+    margin: 0 15px;
+    order: -1;
+}
+
+.checkBox:checked {
+    background: hsl(280, 87%, 65%);
+    border: 1px solid hsl(280, 87%, 65%);
+}
+
+#todoElement {
+    width: 100%;
+    height: 25px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.listElements {
+    width: 100%;
+    background-color: hsl(235, 24%, 19%);
+    border: none;
+}
+
+ul {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+li {
+    height: 50px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+li p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.todoFoot {
+    background-color: hsl(235, 24%, 19%);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 50px;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#leftItems {
+    color: hsl(234, 39%, 85%);
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: none;
+    border: none;
+    height: 10px;
+    outline: none;
+}
+
+
+button {
+    color: hsl(234, 39%, 85%);
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: none;
+    border: none;
+    height: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.close {
+    cursor: pointer;
+    margin: 0 15px;
+}
