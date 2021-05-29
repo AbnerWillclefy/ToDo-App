@@ -102,6 +102,11 @@ header {
     border: 1px solid hsl(280, 87%, 65%);
 }
 
+.listItem > input[type="checkbox"]:checked + div {
+    text-decoration: line-through;
+    color: hsl(233, 14%, 35%);
+}
+
 #todoElement {
     width: 100%;
     height: 25px;
@@ -116,7 +121,7 @@ header {
     border: none;
 }
 
-ul {
+#todoList {
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -124,7 +129,7 @@ ul {
     flex-direction: column;
 }
 
-li {
+.listItem {
     height: 50px;
     width: 100%;
 
@@ -135,14 +140,8 @@ li {
     white-space: nowrap;
     overflow: hidden;
 
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
-}
-
-li p {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    border-top: 1px solid rgb(85, 85, 85);
+    border-bottom: 1px solid rgb(85, 85, 85);
 }
 
 

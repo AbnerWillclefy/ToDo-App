@@ -1,36 +1,73 @@
-function newElement() {
-    let inputValue = document.querySelector('#todoElement').value
-    let para = document.createElement('p')
-    let paraText = document.createTextNode(inputValue)
-    para.appendChild(paraText)
+'use strict';
 
-    var closeButton = document.createElement("img");
-    closeButton.src = 'images/icon-cross.svg'
-    closeButton.className = 'close'
+//let dataBank = []
 
-    var checkedBox = document.createElement('input');
-    checkedBox.type = 'checkbox'
-    checkedBox.className = 'checkBox'
 
-    if (inputValue === '') {} else {
-        let li = document.createElement('li')
-        li.appendChild(para)
-        document.querySelector('ul').appendChild(li)
-        li.appendChild(closeButton)
-        li.appendChild(checkedBox)
-    }
 
-    document.querySelector('#todoElement').value = ''
-    document.querySelector('#todoElement').focus()
+const getBank = () => JSON.parse(localStorage.getItem('todoList')) ?? []
+const setBank = (banco) => localStorage.setItem('todoList', JSON.stringify(banco))
 
-    let close = document.getElementsByClassName("close");
-        for (let i = 0; i < close.length; i++) {
-            close[i].onclick = function() {
-                let div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
-
-    
+const newItem = (texto, status='', indice) => {
+    const item = document.createElement('div')
+    item.classList.add('listItem')
+    item.innerHTML = `
+    <input type="checkbox" class="checkBox" ${status} data-indice=${indice}>
+    <div>${texto}</div>
+    <img class="close" src="images/icon-cross.svg" data-indice=${indice}>
+    `
+    document.querySelector('#todoList').appendChild(item)
 }
 
+const cleanWindow = () => {
+    const todoList = document.querySelector('#todoList')
+    while(todoList.firstChild) {
+        todoList.removeChild(todoList.lastChild)
+    }
+}
+
+const renderWindow = () => {
+    cleanWindow();
+    const dataBank = getBank()
+    dataBank.forEach ((elemento, indice) => newItem(elemento.todo, elemento.status, indice))
+}
+
+const addItem = (event) => {
+    const key = event.key
+    if(key === 'Enter') {
+        const dataBank = getBank()
+        dataBank.push({'todo': event.target.value, 'status': ''})
+        setBank(dataBank)
+        renderWindow()
+        event.target.value = ''
+    }
+}
+
+const removeItem = (indice) => {
+    const dataBank = getBank()
+    dataBank.splice(indice, 1);
+    setBank(dataBank)
+    renderWindow()
+}
+
+const attItem = (indice) => {
+    const dataBank = getBank()
+    dataBank[indice].status = dataBank[indice].status === '' ? 'checked' : ''
+    setBank(dataBank)
+    renderWindow()
+}
+
+const clickItem = (evento) => {
+    const element = evento.target
+    if (element.className === 'close') {
+        const indice = element.dataset.indice
+        removeItem(indice)
+    } else if(element.className === "checkBox") {
+        const indiceChecked = element.dataset.indice
+        attItem(indiceChecked)
+    }
+}
+
+document.getElementById('todoElement').addEventListener('keypress', addItem)
+document.getElementById('todoList').addEventListener('click', clickItem)
+
+renderWindow();
