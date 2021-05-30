@@ -1,9 +1,5 @@
 'use strict';
 
-//let dataBank = []
-
-
-
 const getBank = () => JSON.parse(localStorage.getItem('todoList')) ?? []
 const setBank = (banco) => localStorage.setItem('todoList', JSON.stringify(banco))
 
@@ -29,6 +25,7 @@ const renderWindow = () => {
     cleanWindow();
     const dataBank = getBank()
     dataBank.forEach ((elemento, indice) => newItem(elemento.todo, elemento.status, indice))
+    leftItems()
 }
 
 const addItem = (event) => {
@@ -67,7 +64,21 @@ const clickItem = (evento) => {
     }
 }
 
+const leftItems = () => {
+    const dataBank = getBank()
+
+    const isChecked = (param) => {
+        return param.status != ''
+    }
+
+    const checked = dataBank.filter(isChecked)
+
+    let itemsLeft = document.querySelector('#leftItems')
+    itemsLeft.innerHTML = `${dataBank.length - checked.length} items left`
+}
+
 document.getElementById('todoElement').addEventListener('keypress', addItem)
 document.getElementById('todoList').addEventListener('click', clickItem)
+
 
 renderWindow();
