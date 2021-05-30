@@ -77,6 +77,20 @@ const leftItems = () => {
     itemsLeft.innerHTML = `${dataBank.length - checked.length} items left`
 }
 
+const clearAllItems = () => {
+    const oldBank = getBank()
+
+    const indexChecked = (value) => {
+        return value.status !== 'checked' 
+    }
+    
+    let dataBank = oldBank.filter(indexChecked)
+
+    setBank(dataBank)
+
+    renderWindow();
+}
+
 document.getElementById('todoElement').addEventListener('keypress', addItem)
 document.getElementById('todoList').addEventListener('click', clickItem)
 

@@ -127,6 +127,9 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    white-space: nowrap;
+    overflow: hidden;
+    max-height: 650px;
 }
 
 .listItem {
