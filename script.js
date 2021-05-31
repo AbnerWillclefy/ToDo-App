@@ -7,8 +7,10 @@ const newItem = (texto, status='', indice) => {
     const item = document.createElement('div')
     item.classList.add('listItem')
     item.innerHTML = `
+    <label class="checkAndMsg">
     <input type="checkbox" class="checkBox" ${status} data-indice=${indice}>
     <div>${texto}</div>
+    </label>
     <img class="close" src="images/icon-cross.svg" data-indice=${indice}>
     `
     document.querySelector('#todoList').appendChild(item)
@@ -90,6 +92,7 @@ const clearAllItems = () => {
 
     renderWindow();
 }
+
 
 document.getElementById('todoElement').addEventListener('keypress', addItem)
 document.getElementById('todoList').addEventListener('click', clickItem)

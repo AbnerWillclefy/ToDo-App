@@ -13,16 +13,17 @@
 </head>
 <body>
   <div id="app">
-    <header>
-      <div class="logo"><p>todo</p></div>
-      <img src="images/icon-sun.svg" alt="Button to change theme" id="changeTheme">
-    </header>
+    
+      <header>
+        <div class="logo"><p>todo</p></div>
+        <img src="images/icon-sun.svg" alt="Button to change theme" id="changeTheme">
+      </header>
 
-    <div class="newElement">
-      <button class="buttonCreate" onclick="newElement()"></button>
-      <input type="text" name="text" id="todoElement" placeholder="Type something..." maxlength="32">
-    </div>
-
+      <div class="newElement">
+        <input type="checkbox" class="checkBox">
+        <input type="text" name="text" id="todoElement" placeholder="Create a new todo..." maxlength="50">
+      </div>
+    
     <div class="listElements">
       <div id="todoList">
         
@@ -39,13 +40,8 @@
         <button id="clearCompleted" onclick="clearAllItems()">Clear Completed</button>
       </div>
     </div>
-    
-
-    <footer class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Abner Willclefy</a>.
-    </footer>  
   </div>
+  
 
   <script src="script.js"></script>
 </body>
