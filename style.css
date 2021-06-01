@@ -91,15 +91,15 @@ body.light-theme .logo p {
 #changeTheme {
     cursor: pointer;
     background: url('images/icon-sun.svg') no-repeat;
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
 }
 
 body.light-theme #changeTheme {
     cursor: pointer;
     background: url('images/icon-moon.svg') no-repeat;
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
 }
 
 .newElement {
@@ -366,4 +366,74 @@ body.light-theme button:hover {
 
 .close:hover {
     transform: scale(1.2);
+}
+
+#Mobile {
+    display: none;
+}
+
+@media(max-width: 375px) {
+    html {
+        font-size: 50%;
+    }
+
+    body.light-theme .listItem {
+        height: 6rem;
+        width: 100%;
+        padding: 0.7rem 1rem;
+    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+        border-bottom: 1px solid hsl(233, 11%, 84%);
+        
+    }
+
+    .todoFoot {
+        justify-content: space-between;
+        padding: 0 3rem;
+    }
+
+    body.light-theme .todoFoot {
+        background-color: hsl(236, 33%, 92%);
+        justify-content: space-between;
+        padding: 0 3rem;
+    }
+
+    #Desktop {
+        display: none;
+    }
+
+    #Mobile {
+        display: flex;
+        justify-content: center;
+
+        height: 5rem;
+        width: 100%;
+
+        background-color: hsl(235, 24%, 19%);
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0,0,0,.4);
+
+        margin-top: 2rem;
+    }
+
+    body.light-theme #Mobile{
+        display: flex;
+        justify-content: center;
+
+        height: 5rem;
+        width: 100%;
+
+        background-color: hsl(236, 33%, 92%);
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0,0,0,.4);
+
+        margin-top: 2rem;
+    }
+
+    #filterActive {
+        margin: 0 2rem;
+    }
 }
