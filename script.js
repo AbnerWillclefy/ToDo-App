@@ -33,6 +33,7 @@ const renderWindow = () => {
 const addItem = (event) => {
     const key = event.key
     if(key === 'Enter') {
+        if(event.target.value === '') {return }
         const dataBank = getBank()
         dataBank.push({'todo': event.target.value, 'status': ''})
         setBank(dataBank)
