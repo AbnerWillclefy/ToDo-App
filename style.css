@@ -372,7 +372,7 @@ body.light-theme button:hover {
     display: none;
 }
 
-@media(max-width: 375px) {
+@media(max-width: 425px) {
     html {
         font-size: 50%;
     }
