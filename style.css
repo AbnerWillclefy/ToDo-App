@@ -8,23 +8,34 @@
     box-sizing: border-box;
     list-style: none;
     font-family: 'Josefin Sans', sans-serif;
-    color: #fff;
 }
 
 html {
     font-size: 62.5%;
-    background-color: hsl(235, 21%, 11%);
 }
 
 body{
     font-size: 1.8rem;
-    
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: url(images/bg-desktop-dark.jpg) no-repeat ;
+    background-color: hsl(235, 21%, 11%);
     width: 100vw;
+    color: hsl(0, 0%, 98%);
+}
+
+body.light-theme {
+    font-size: 1.8rem;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(images/bg-desktop-light.jpg) no-repeat ;
+    background-color: hsl(0, 0%, 98%);
+    width: 100vw;
+    color: hsl(235, 19%, 35%);
 }
 
 #app {
@@ -53,8 +64,26 @@ header {
     font-weight: 700;
 }
 
+body.light-theme .logo p {
+    text-transform: uppercase;
+    letter-spacing: 17px;
+    font-size: 3.8rem;
+    font-weight: 700;
+    color: hsl(0, 0%, 98%);
+}
+
 #changeTheme {
     cursor: pointer;
+    background: url('images/icon-sun.svg') no-repeat;
+    width: 3rem;
+    height: 3rem;
+}
+
+body.light-theme #changeTheme {
+    cursor: pointer;
+    background: url('images/icon-moon.svg') no-repeat;
+    width: 3rem;
+    height: 3rem;
 }
 
 .newElement {
@@ -71,14 +100,42 @@ header {
     box-shadow: 0 0 20px rgba(0,0,0,.4);
 }
 
+body.light-theme .newElement {
+    height: 6rem;
+    width: 100%;
+    margin-bottom: 2.0rem;
+    padding: 0.7rem 1rem;
+
+    display: flex;
+    align-items: center;
+
+    background-color: hsl(236, 33%, 92%);
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,.4);
+}
+
 #todoElement {
     margin-left: 1rem;
+    padding-top: 0.2rem;
     width: 70%;
     height: 3.0rem;
     background: none;
     border: none;
     outline: none;
     font-size: 2.0rem;
+    color: hsl(0, 0%, 98%);
+}
+
+body.light-theme #todoElement {
+    margin-left: 1rem;
+    padding-top: 0.2rem;
+    width: 70%;
+    height: 3.0rem;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 2.0rem;
+    color: hsl(235, 19%, 35%);
 }
 
 .buttonCreate {
@@ -93,6 +150,22 @@ header {
     cursor: pointer;
 
     margin: 0 15px;
+}
+
+#newElementIcon {
+    width: 2.2rem;
+    height: 2.2rem;
+    background: linear-gradient(to right, hsl(192, 100%, 67%),hsl(280, 87%, 65%)) center no-repeat;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid linear-gradient(to right, hsl(192, 100%, 67%),hsl(280, 87%, 65%)) center no-repeat;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+
+    margin: 0 15px;
+    order: -1;
 }
 
 .checkBox {
@@ -124,11 +197,22 @@ label > input[type="checkbox"]:checked + div {
     color: hsl(233, 14%, 35%);
 }
 
-
+body.light-theme label > input[type="checkbox"]:checked + div {
+    text-decoration: line-through;
+    color: hsl(236, 9%, 61%);
+}
 
 .listElements {
     width: 100%;
     background-color: hsl(235, 24%, 19%);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,.4);
+}
+
+body.light-theme .listElements {
+    width: 100%;
+    background-color: hsl(236, 33%, 92%);
     border: none;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0,0,0,.4);
@@ -161,6 +245,27 @@ label > input[type="checkbox"]:checked + div {
     
 }
 
+.itemContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.light-theme .listItem {
+    height: 60px;
+    width: 100%;
+    padding: 0.7rem 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+
 .checkAndMsg {
     display: flex;
 }
@@ -179,8 +284,30 @@ label > input[type="checkbox"]:checked + div {
     border-bottom-right-radius: 10px;
 }
 
+body.light-theme .todoFoot {
+    background-color: hsl(236, 33%, 92%);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 5.0rem;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 #leftItems {
     color: hsl(233, 14%, 35%);
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+body.light-theme #leftItems {
+    color: hsl(236, 9%, 61%);
     font-size: 1.2rem;
     font-weight: 700;
     background: none;
@@ -206,10 +333,29 @@ button {
     cursor: pointer;
     outline: none;
     transition: 0.4s;
+    user-select: none;
+}
+
+body.light-theme button {
+    color: hsl(236, 9%, 61%);
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: none;
+    border: none;
+    height: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.4s;
+    user-select: none;
 }
 
 button:hover {
     color: hsl(234, 39%, 85%);
+    transform: scale(1.1);
+}
+
+body.light-theme button:hover {
+    color: hsl(235, 19%, 35%);
     transform: scale(1.1);
 }
 

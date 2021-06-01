@@ -9,7 +9,7 @@ const newItem = (texto, status='', indice) => {
     item.innerHTML = `
     <label class="checkAndMsg">
     <input type="checkbox" class="checkBox" ${status} data-indice=${indice}>
-    <div>${texto}</div>
+    <div class="itemContent">${texto}</div>
     </label>
     <img class="close" src="images/icon-cross.svg" data-indice=${indice}>
     `
@@ -93,9 +93,45 @@ const clearAllItems = () => {
     renderWindow();
 }
 
+const showAll = () => {
+    const listItems = document.getElementsByClassName('listItem')
+    for(let i = 0; i < listItems.length; i++) {
+        listItems[i].style.display = "flex"
+    }
+}
+
+const showActive = () => {
+    const listItems = document.getElementsByClassName('listItem')
+    const checkBox = document.getElementsByClassName('checkBox')
+    for(let i = 0; i < listItems.length; i++) {
+        if(checkBox[i].checked) {
+            listItems[i].style.display = "none"
+        } else {
+            listItems[i].style.display = "flex"
+        }
+    }
+}
+
+const showCompleted = () => {
+    const listItems = document.getElementsByClassName('listItem')
+    const checkBox = document.getElementsByClassName('checkBox')
+    for(let i = 0; i < listItems.length; i++) {
+        if(!checkBox[i].checked) {
+            listItems[i].style.display = "none"
+        } else {
+            listItems[i].style.display = "flex"
+        }
+    }
+}
+
 
 document.getElementById('todoElement').addEventListener('keypress', addItem)
 document.getElementById('todoList').addEventListener('click', clickItem)
+
+const button = document.getElementById('changeTheme')
+button.addEventListener('click', function() {
+    document.body.classList.toggle('light-theme')
+})
 
 
 renderWindow();

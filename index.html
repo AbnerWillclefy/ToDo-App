@@ -16,11 +16,11 @@
     
       <header>
         <div class="logo"><p>todo</p></div>
-        <img src="images/icon-sun.svg" alt="Button to change theme" id="changeTheme">
+        <div id="changeTheme"></div>
       </header>
 
       <div class="newElement">
-        <input type="checkbox" class="checkBox">
+        <div id="newElementIcon"></div>
         <input type="text" name="text" id="todoElement" placeholder="Create a new todo..." maxlength="50">
       </div>
     
@@ -32,9 +32,9 @@
         <div id="leftItems">items left</div>
   
         <div class="filterElements">
-          <button id="filterAll">All</button>
-          <button id="filterActive">Active</button>
-          <button id="filterCompleted">Completed</button>
+          <button id="filterAll" onclick="showAll()">All</button>
+          <button id="filterActive" onclick="showActive()">Active</button>
+          <button id="filterCompleted" onclick="showCompleted()">Completed</button>
         </div>
   
         <button id="clearCompleted" onclick="clearAllItems()">Clear Completed</button>
