@@ -11,7 +11,7 @@ const newItem = (texto, status='', indice) => {
     <input type="checkbox" class="checkBox" ${status} data-indice=${indice}>
     <div class="itemContent">${texto}</div>
     </label>
-    <img class="close" src="images/icon-cross.svg" data-indice=${indice}>
+    <img class="close" src="../images/icon-cross.svg" data-indice=${indice}>
     `
     document.querySelector('#todoList').appendChild(item)
 }
