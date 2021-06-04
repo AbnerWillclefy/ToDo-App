@@ -44,14 +44,14 @@ Este projeto foi construído com a intenção de criar uma aplicação de lista 
 ## 🎈 Utilidades
 
 - Layout Responsivo
-- Criação de tarefas
+- Criar de tarefas
 - Apagar tarefas
 - Marcar tarefas como concluídas
-- Filtragem das tarefas
+- Filtrar tarefas em:
   - Todas
-  - Completadas
+  - Completas
   - Ativas
-- Apagar todas as tarefas concluídas
+- Apagar tarefas concluídas
 - Visualização da quantidade de tarefas ativas restantes
 - Mudança de tema da página
 
